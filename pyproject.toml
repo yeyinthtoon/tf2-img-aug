@@ -1,0 +1,53 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "tf2-img-aug"
+authors = [
+    {name = "Ye Yint Htoon", email = "yeyinthtoon.yyh@gmail.com"},
+]
+readme = "README.md"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    "Programming Language :: Python :: 3 :: Only",
+]
+requires-python = ">=3.7"
+dynamic =  ["version", "description"]
+dependencies = [
+    "tensorflow >=2.7.0",
+]
+
+[project.urls]
+Source = "https://github.com/yeyinthtoon/tf2-img-aug"
+
+[project.optional-dependencies]
+test = [
+    "pytest ==6.2.0",
+    "pytest-cov",
+    "mypy ==0.910",
+    "black == 21.10b0",
+    "pylint ==2.11.1",
+]
+
+[tool.flit.module]
+name = "imgaug"
+
+
+[tool.pylint.'MESSAGES CONTROL']
+disable= "R0902, R0913, W0201, C0103, R0914"
+
+[tool.pylint.format]
+max-line-length = 119
+
+[tool.black]
+line-length = 119
+
+[tool.mypy]
+ignore_missing_imports = true
